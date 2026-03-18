@@ -22,5 +22,5 @@ here is a fun website to waste time on <b> :) </b>
 [The Useless Web](https://theuselessweb.com/)
 
 
-
-Blah Blah Blah ![](https://media1.tenor.com/m/qkh6_tAcm5IAAAAC/dritan-dritanalsela.gif)
+See ya <br>
+![](https://media1.tenor.com/m/qkh6_tAcm5IAAAAC/dritan-dritanalsela.gif)

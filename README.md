@@ -21,4 +21,6 @@ A little about me:
 here is a fun website to waste time on <b> :) </b>  
 [The Useless Web](https://theuselessweb.com/)
 
-A meme that captures how I currently feel about my university studies is ![](https://c.tenor.com/8druEACXtX8AAAAd/tenor.gif)
+
+
+Blah Blah Blah ![](https://media1.tenor.com/m/qkh6_tAcm5IAAAAC/dritan-dritanalsela.gif)

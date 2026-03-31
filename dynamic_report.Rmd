@@ -4,13 +4,14 @@ output: html_fragment
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width = 6, fig.height = 4)
 
 ```
 
 ```{css}
 html,body, div{
-
+  font-family: Courier;
+  font-size: 12pt;
   margin: 0 auto;
   background-color: #F5F5F5;
   
@@ -24,24 +25,28 @@ img{
   margin: 0 auto;
 }
 
-p, h1, h2{
+h1, h2{
   text-align: center;
 }
 p{
-text-size: 30px;
+  text-size: 40px;
+  text-align: center;
+}
+
+.dynamic-comment {
+background-color: lightblue;
 }
 
 ```
 
 ## Tracking the Car Color and Model Types in Greenlane.
 
-This Dataset comes from a series of observations where I observerd the population of motor-vehicles along a quieter road in Greenlane. I the recorder was positioned at a Cafe and observed these vehicles to create a database I could apply data visualisation techniques to in this Report.
+This Dataset comes from a series of observations where I observed the population of motor-vehicles along a quieter road in Greenlane. I was positioned at a Cafe and observed these vehicles to create a database I could apply data visualisation techniques to in this Report. Below I have a few graphs that display certain trends in the data I have found.
 
 ```{r}
 library(tidyverse)
-library(glue)
 library(knitr)
-# to use a version of f-string in python im also using the glue package, I like the text without "" marks
+
 
 logged_data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRv5EOizOvtqyfHV7KuizsM1R9lkir6ClXY0T0nzyrCQhfzxgZ0dRq0o5i0BjhWMgZgAX2adOEecKIs/pub?output=csv")
 
@@ -54,7 +59,6 @@ latest_data <- logged_data %>%
 #How many observations do we have?
 num_observations <- nrow(latest_data)
 
-#cat(glue("We have {num_observations} observations"))
 
 #What is the oldest, and Newest year of cars observed
 newest <- max(latest_data$production_year)
@@ -63,7 +67,8 @@ oldest <- min(latest_data$production_year)
 
 <br>
 We have `r num_observations` observations ranging in years from `r oldest` to `r newest`.
-
+<br>
+Below is a sample of the first 10 observations, displaying all the record variables.
 
 
 
@@ -114,7 +119,9 @@ most_common_brand %>% kable(col.names = c("Brand", "count"))
 Looking at this plot we can see clearly that the most common car brand observed is `r most_common_brand$Maker[1] ` with `r most_common_brand$n[1] ` observations,
 <br>
  [Heres a link to my form feel free to add an observation fo your own!](https://docs.google.com/forms/d/e/1FAIpQLSdhYRI6jH7CsPg7w_9M291C8PNFxvXv8mdxJEubVLCk4Rb52w/viewform)
+ 
+ ![](dataset_img.png)
+Here is a snippet of my rectangular dataset I create from the gathered responses to the survey, you can see it is well maintained and in a clean format.
 
 
-
-![](https://c.tenor.com/-qBsG1HwR4oAAAAC/tenor.gif)
+![](https://media.tenor.com/7DeeDs3MME4AAAAi/emoji-shocked.gif)

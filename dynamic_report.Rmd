@@ -97,7 +97,7 @@ ggplot(data = latest_data) +
 # Learnt the arrange function and sorting by descending so I can output a nice summary stat under the data visualisation
 # Using Knitr to make my data visualisations nicer, otherwise I have my tables with # and they look less Visually appealing
 most_common_colour <- latest_data %>% count(Car_Colour) %>% arrange(desc(n))
-most_common_colour %>% kable(col.names = c("colour", "count"))
+most_common_colour %>% head(6) %>% kable(col.names = c("colour", "count"))
 ```
 
 Looking at this plot we see that the most observed colour is `r most_common_colour$Car_Colour[1] ` with `r most_common_colour$n[1] ` observations. 
@@ -112,11 +112,22 @@ ggplot(data = latest_data) +
   geom_bar(aes(x = Maker), fill = "Orange") + theme_minimal() + theme(axis.text.x =  element_text(angle = 90)) 
 
 most_common_brand <- latest_data %>% count(Maker) %>% arrange(desc(n))
-most_common_brand %>% kable(col.names = c("Brand", "count"))
+most_common_brand %>% head(6) %>%kable(col.names = c("Brand", "count"))
 
 ```
 
-Looking at this plot we can see clearly that the most common car brand observed is `r most_common_brand$Maker[1] ` with `r most_common_brand$n[1] ` observations,
+Looking at this plot we can see clearly that the most common car brand observed is `r most_common_brand$Maker[1] ` with `r most_common_brand$n[1] ` observations.
+<br>
+
+```{r}
+ggplot(data = latest_data) +
+  aes(x = production_year) + geom_histogram(binwidth = 2, fill = "#008080", color ="black" ) + labs(title = "Car count by production year",x = "year", y = "Count")
+
+most_common_year <- latest_data %>% count(production_year) %>% arrange(desc(n))
+most_common_year %>% head(6) %>% kable(col.names = c("Year", "count"))
+```
+in this Histogram of common car year by count we see that `r most_common_year$production_year[1] ` is the most popular year for people to have cars from, with `r most_common_year$n[1] ` observations.
+
 <br>
  [Heres a link to my form feel free to add an observation fo your own!](https://docs.google.com/forms/d/e/1FAIpQLSdhYRI6jH7CsPg7w_9M291C8PNFxvXv8mdxJEubVLCk4Rb52w/viewform)
  

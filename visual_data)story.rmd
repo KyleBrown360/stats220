@@ -1,0 +1,95 @@
+---
+title: "What Are Aucklanders Driving?"
+author: "Kyle Brown"
+output: html_document
+---
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{js}
+$(function() {
+  $(".level2").css('visibility', 'hidden');
+  $(".level2").first().css('visibility', 'visible');
+  $(".container-fluid").height($(".container-fluid").height() + 300);
+  $(window).on('scroll', function() {
+    $('h2').each(function() {
+      var h2Top = $(this).offset().top - $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (h2Top >= 0 && h2Top <= windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'visible');
+      } else if (h2Top > windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'hidden');
+      }
+    });
+  });
+})
+```
+
+```{css, echo=FALSE}
+.figcaption {display: none}
+
+html, body, div {
+  font-family: Courier, monospace;
+  font-size: 30px;
+  margin: 0 auto;
+  background-color: #f6e8c3;
+  color: #3d2b1f;
+}
+
+table {
+  margin: 0 auto;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+h1 {
+  text-align: center;
+  color: #01665e;
+}
+
+h2 {
+  text-align: center;
+  color: #35978f;
+}
+
+p {
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'courier new', cursive;
+}
+
+```
+
+## What's This All About?
+
+From a café window in Greenlane-Auckland, I spent time over a refreshing drink or two,observing and recording cars as they drove past. For each car I logged its **brand**, **colour**, **production year**, and whether it had a **custom licence plate**. The purpose of the data collection? To see if there are any trends in the purchasing behavior of Aucklanders car selection.
+
+
+
+## Which Brands have Consumer Market share?
+
+![mY PLOT](https://github.com/KyleBrown360/stats220/blob/main/plot1.png?raw=true)
+
+From the results of the data collection, there is a clear favorite manufacturer for Kiwis. Toyota. This brand has approximatly double the number observations as the 2'nd most popular brand. The usual suspects follow the lead. Mazda, Hyundai etc. Something else I wanted to capute in this data collection was, what is the relationship between a car Brand and how new the car is. I incorporated that into the same graph. Two brands stand out here. Tesla and BYD, both brands are relativly new to the New Zealand market. We see the entirety of observed cars for these brands are made after 2020.
+
+## Whats the Trend with Custom Liscence Plates?
+![mY PLOT](https://github.com/KyleBrown360/stats220/blob/main/plot2.png?raw=true)
+We can see from the plot that the later timestamp has a higher rate of custom license plate obersvations. Both still are quite a low proportion of the overall counts but there still is an interesting difference. Why this difference I do not have an answer and I would be speculating, however time of day and week may have a key part.
+
+
+
+## Trend of car popularity over Years?
+
+![](https://github.com/KyleBrown360/stats220/blob/main/plot3.png?raw=true)
+ Here we see how the popularity of car colors changes over time. Blue cars that were observed tended to be more common around the late 2010's whereas, there are a lot of modern cars being produced in white for example.
+
+
+
